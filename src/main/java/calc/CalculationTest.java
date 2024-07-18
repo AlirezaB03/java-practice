@@ -2,6 +2,7 @@ package calc;
 
 public class CalculationTest {
     public static void main(String[] args) {
-        new Calculate();
+        Calculate calc = new Calculate();
+        calc.run();
     }
 }

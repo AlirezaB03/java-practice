@@ -1,14 +1,16 @@
 package calc;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calculate {
-    int option;
-    private double number;
     private double number1;
     private double number2;
+    List<String> history = new ArrayList<>();
 
-    public Calculate() {
+    public void run() {
+        int option;
         do {
             Scanner scanner = new Scanner(System.in);
 
@@ -17,7 +19,8 @@ public class Calculate {
             System.out.println("2) sub");
             System.out.println("3) mul");
             System.out.println("4) div");
-            System.out.println("5) exit");
+            System.out.println("5) History");
+            System.out.println("6) exit");
 
             System.out.print("your choice: ");
             option = scanner.nextInt();
@@ -36,15 +39,18 @@ public class Calculate {
                     div();
                     break;
                 case 5:
+                    history();
+                    break;
+                case 6:
                     exit();
                     break;
                 default:
                     System.out.println("Invalid option\n Try again");
             }
-        } while (true);
+        } while (option != 6);
     }
 
-    public void choiceNumber() {
+    private void choiceNumber() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("enter number1: ");
         number1 = scanner.nextDouble();
@@ -52,66 +58,59 @@ public class Calculate {
         number2 = scanner.nextDouble();
     }
 
-    public void intOrDouble(double number) {
-        int b;
-        b = (int) number;
-        if (number == b) {
-            System.out.print(b);
-        } else {
-            System.out.print(number);
-        }
-    }
-    public void add() {
+    private void add() {
         choiceNumber();
-        intOrDouble(number1);
-        System.out.print(" + ");
-        intOrDouble(number2);
-        number = number1 + number2;
-        System.out.print(" = ");
-        intOrDouble(number);
-        System.out.println("\n===================================\n");
+        double number = number1 + number2;
+        String result = number1 + " + " + number2 + " = " + number;
+        history.add(result);
+        printResult(result);
     }
 
-    public void sub() {
+    private void sub() {
         choiceNumber();
-        intOrDouble(number1);
-        System.out.print(" - ");
-        intOrDouble(number2);
-        number = number1 - number2;
-        System.out.print(" = ");
-        intOrDouble(number);
-        System.out.println("\n===================================\n");
+        double number = number1 - number2;
+        String result =number1 + " - " + number2 + " = " + number;
+        history.add(result);
+        printResult(result);
     }
 
-    public void mul() {
+    private void mul() {
         choiceNumber();
-        intOrDouble(number1);
-        System.out.print(" * ");
-        intOrDouble(number2);
-        number = number1 * number2;
-        System.out.print(" = ");
-        intOrDouble(number);
-        System.out.println("\n===================================\n");
+        double number = number1 * number2;
+        String result =number1 + " * " + number2 + " = " + number;
+        history.add(result);
+        printResult(result);
     }
 
-    public void div() {
+    private void div() {
         choiceNumber();
-        if (number2 != 0) {
-            intOrDouble(number1);
-            System.out.print(" / ");
-            intOrDouble(number2);
-            number = number1 / number2;
-            System.out.print(" = ");
-            intOrDouble(number);
-            System.out.println("\n===================================\n");
-        } else {
+        try {
+            double number = number1 / number2;
+            String result =number1 + " / " + number2 + " = " + number;
+            history.add(result);
+            printResult(result);
+        } catch (Exception e) {
             System.out.print("number2 cannot be zero");
-            System.out.println("\n===================================\n");
+            System.out.println("===================================\n");
         }
     }
 
-    public void exit() {
+    private void history() {
+        System.out.println("<<History>>\n");
+        for (int i = 0; i < history.size(); i++) {
+            System.out.println((i+1)+") "+history.get(i));
+        }
+        System.out.println("===================================\n");
+    }
+
+    private void printResult(String result) {
+        System.out.println(result);
+        System.out.println("===================================\n");
+    }
+
+    private void exit() {
         System.exit(0);
     }
+
 }
 
