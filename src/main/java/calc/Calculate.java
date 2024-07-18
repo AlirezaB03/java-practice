@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Calculate {
+public class Calculate extends {
     private double number1;
     private double number2;
     List<String> history = new ArrayList<>();
 
+
     public void run() {
         int option;
+
         do {
             Scanner scanner = new Scanner(System.in);
 
@@ -107,13 +109,12 @@ public class Calculate {
         System.out.println(result);
         printDelimiter();
     }
-    private void printDelimiter() {
+    protected void printDelimiter() {
         System.out.println("===================================\n");
     }
 
     private void exit() {
         System.exit(0);
     }
-
 }
 
