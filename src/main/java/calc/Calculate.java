@@ -69,7 +69,7 @@ public class Calculate {
     private void sub() {
         choiceNumber();
         double number = number1 - number2;
-        String result =number1 + " - " + number2 + " = " + number;
+        String result = number1 + " - " + number2 + " = " + number;
         history.add(result);
         printResult(result);
     }
@@ -77,7 +77,7 @@ public class Calculate {
     private void mul() {
         choiceNumber();
         double number = number1 * number2;
-        String result =number1 + " * " + number2 + " = " + number;
+        String result = number1 + " * " + number2 + " = " + number;
         history.add(result);
         printResult(result);
     }
@@ -86,25 +86,28 @@ public class Calculate {
         choiceNumber();
         try {
             double number = number1 / number2;
-            String result =number1 + " / " + number2 + " = " + number;
+            String result = number1 + " / " + number2 + " = " + number;
             history.add(result);
             printResult(result);
         } catch (Exception e) {
             System.out.print("number2 cannot be zero");
-            System.out.println("===================================\n");
+            printDelimiter();
         }
     }
 
     private void history() {
         System.out.println("<<History>>\n");
         for (int i = 0; i < history.size(); i++) {
-            System.out.println((i+1)+") "+history.get(i));
+            System.out.println((i + 1) + ") " + history.get(i));
         }
-        System.out.println("===================================\n");
+        printDelimiter();
     }
 
     private void printResult(String result) {
         System.out.println(result);
+        printDelimiter();
+    }
+    private void printDelimiter() {
         System.out.println("===================================\n");
     }
 
