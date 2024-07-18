@@ -1,13 +1,12 @@
 package calc;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Calculate extends {
+public class Calculate {
     private double number1;
     private double number2;
-    List<String> history = new ArrayList<>();
+    private InMemoryHistory inMemoryHistory = new InMemoryHistory();
 
 
     public void run() {
@@ -64,24 +63,27 @@ public class Calculate extends {
         choiceNumber();
         double number = number1 + number2;
         String result = number1 + " + " + number2 + " = " + number;
-        history.add(result);
         printResult(result);
+        inMemoryHistory.add(result);
     }
 
     private void sub() {
         choiceNumber();
         double number = number1 - number2;
         String result = number1 + " - " + number2 + " = " + number;
-        history.add(result);
         printResult(result);
+        inMemoryHistory.add(result);
+
+
     }
 
     private void mul() {
         choiceNumber();
         double number = number1 * number2;
         String result = number1 + " * " + number2 + " = " + number;
-        history.add(result);
         printResult(result);
+        inMemoryHistory.add(result);
+
     }
 
     private void div() {
@@ -89,8 +91,8 @@ public class Calculate extends {
         try {
             double number = number1 / number2;
             String result = number1 + " / " + number2 + " = " + number;
-            history.add(result);
             printResult(result);
+            inMemoryHistory.add(result);
         } catch (Exception e) {
             System.out.print("number2 cannot be zero");
             printDelimiter();
@@ -99,17 +101,19 @@ public class Calculate extends {
 
     private void history() {
         System.out.println("<<History>>\n");
-        for (int i = 0; i < history.size(); i++) {
-            System.out.println((i + 1) + ") " + history.get(i));
+
+        List<String> list = inMemoryHistory.getAll();
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + ") " + list.get(i));
         }
         printDelimiter();
     }
 
-    private void printResult(String result) {
-        System.out.println(result);
-        printDelimiter();
-    }
-    protected void printDelimiter() {
+        private void printResult(String result) {
+            System.out.println(result);
+            printDelimiter();
+        }
+    public void printDelimiter() {
         System.out.println("===================================\n");
     }
 
