@@ -6,8 +6,11 @@ import java.util.Scanner;
 public class Calculate {
     private double number1;
     private double number2;
-    private InMemoryHistory inMemoryHistory = new InMemoryHistory();
+    private HistoryHandler historyHandler;
 
+    public Calculate(HistoryHandler historyHandler) {
+        this.historyHandler = historyHandler;
+    }
 
     public void run() {
         int option;
@@ -64,7 +67,7 @@ public class Calculate {
         double number = number1 + number2;
         String result = number1 + " + " + number2 + " = " + number;
         printResult(result);
-        inMemoryHistory.add(result);
+        historyHandler.add(result);
     }
 
     private void sub() {
@@ -72,7 +75,7 @@ public class Calculate {
         double number = number1 - number2;
         String result = number1 + " - " + number2 + " = " + number;
         printResult(result);
-        inMemoryHistory.add(result);
+        historyHandler.add(result);
 
 
     }
@@ -82,7 +85,7 @@ public class Calculate {
         double number = number1 * number2;
         String result = number1 + " * " + number2 + " = " + number;
         printResult(result);
-        inMemoryHistory.add(result);
+        historyHandler.add(result);
 
     }
 
@@ -92,7 +95,7 @@ public class Calculate {
             double number = number1 / number2;
             String result = number1 + " / " + number2 + " = " + number;
             printResult(result);
-            inMemoryHistory.add(result);
+            historyHandler.add(result);
         } catch (Exception e) {
             System.out.print("number2 cannot be zero");
             printDelimiter();
@@ -102,7 +105,7 @@ public class Calculate {
     private void history() {
         System.out.println("<<History>>\n");
 
-        List<String> list = inMemoryHistory.getAll();
+        List<String> list = historyHandler.getAll();
         for (int i = 0; i < list.size(); i++) {
             System.out.println((i + 1) + ") " + list.get(i));
         }

@@ -2,7 +2,8 @@ package calc;
 
 public class CalculationTest {
     public static void main(String[] args) {
-        Calculate calc = new Calculate();
+        InMemoryHistoryHandler historyHandler = new InMemoryHistoryHandler();
+        Calculate calc = new Calculate(historyHandler);
         calc.run();
     }
 }

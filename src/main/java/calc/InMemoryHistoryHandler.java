@@ -3,7 +3,7 @@ package calc;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryHistory implements IHistory {
+public class InMemoryHistoryHandler implements HistoryHandler {
 
     List<String> history = new ArrayList<>();
 
