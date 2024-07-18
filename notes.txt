@@ -1,0 +1,13 @@
+1) space after choose item *
+2) correct input number message *
+3) "\n=======================\n" *
+4) remove all static methods *
+5) think about your constructor? what is the duty of constructor? change your constructor.
+6) remove again *
+7) rewrite with do-while or while or for *
+
+----------------------
+0) space in result string *
+1.1) sticky delimiter *
+1) private methods *
+2) printResult method *
