@@ -6,11 +6,13 @@ import java.util.Scanner;
 public class Calculate {
     private double number1;
     private double number2;
-    private HistoryHandler historyHandler;
+    private final HistoryHandler historyHandler;
 
     public Calculate(HistoryHandler historyHandler) {
         this.historyHandler = historyHandler;
     }
+//    InMemoryHistoryHandler historyHandler = new InMemoryHistoryHandler();
+
 
     public void run() {
         int option;
@@ -124,4 +126,5 @@ public class Calculate {
         System.exit(0);
     }
 }
+
 
