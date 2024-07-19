@@ -2,6 +2,7 @@ package calc;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.MemoryHandler;
 
 public class Calculate {
     private double number1;
@@ -11,12 +12,9 @@ public class Calculate {
     public Calculate(HistoryHandler historyHandler) {
         this.historyHandler = historyHandler;
     }
-//    InMemoryHistoryHandler historyHandler = new InMemoryHistoryHandler();
-
 
     public void run() {
         int option;
-
         do {
             Scanner scanner = new Scanner(System.in);
 

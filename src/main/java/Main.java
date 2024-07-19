@@ -1,23 +1,17 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Queue;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        if (!Files.exists(Path.of("history.txt"))) {
+            Files.createFile(Path.of("history.txt"));
+        } else {
+            System.out.println("File already exists");
+        }
     }
-}
-
-class Animal {
-    String name;
-    int age;
-
-    public void eat() {
-        System.out.println("animal is eating");
-    }
-
-    public void printAge() {
-        System.out.println("animal age is " + age);
-    }
-}
-
-class Cat extends Animal {
 
 }
 
