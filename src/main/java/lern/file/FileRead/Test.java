@@ -1,11 +1,8 @@
-package garbage;
-
-import lern.file.FileRead.File;
+package lern.file.FileRead;
 
 import java.io.IOException;
 
-public class garbage1 {
-
+public class Test {
     public static void main(String[] args) throws IOException {
         File file = new File();
         file.makeFile();
@@ -15,6 +12,3 @@ public class garbage1 {
 
     }
 }
-
-
-
