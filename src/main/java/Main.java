@@ -9,7 +9,7 @@ public class Main {
         if (!Files.exists(Path.of("history.txt"))) {
             Files.createFile(Path.of("history.txt"));
         } else {
-            System.out.println("File already exists");
+            System.out.println("File is exists");
         }
     }
 
