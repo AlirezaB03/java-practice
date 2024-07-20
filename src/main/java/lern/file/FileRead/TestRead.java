@@ -2,9 +2,9 @@ package lern.file.FileRead;
 
 import java.io.IOException;
 
-public class Test {
+public class TestRead {
     public static void main(String[] args) throws IOException {
-        File file = new File();
+        FileRead file = new FileRead();
         file.makeFile();
         file.writeFile();
         file.writeFile1();

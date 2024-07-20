@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 
-public class File {
+public class FileRead {
 
     private final String fileNamepath = "/home/amir/Documents/alireza/1/young/history.txt";
     private final String fileName = fileName();
