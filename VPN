@@ -1,3 +1,33 @@
 vless://112aff42-4031-45b9-b0ea-dd389f586b59@ir.holyalbert.com:33203?security=none&encryption=none&headerType=none&type=tcp#Amir
 
 vless://85b94f20-e563-498b-9d4b-a75438a51101@104.18.5.2:2096?path=%2FTELEGRAM-MARAMBASHI-MARAMBASHI%2F%3Fed%3D2048&security=tls&encryption=none&host=VFIvE-teLeGram.PAGEs.Dev&type=ws&sni=VFIvE-teLeGram.PAGEs.Dev#%F0%9F%94%AETELEGRAM%3A%F0%9F%94%AE%E3%80%8A%40MARAMBASHI%E3%80%8B
+
+package ir.ac.tums.credit.entity;
+
+import ir.ac.tums.common.interfaces.DocumentTemplate;
+import ir.ac.tums.core.enumeration.SubSystem;
+import ir.ac.tums.core.enumeration.UsecaseType;
+import ir.ac.tums.core.utils.UsecaseSupport;
+
+import javax.persistence.*;
+
+/**
+ * Created by armiiit on Jul, 2018
+ */
+
+@Entity
+@Table(name = "cm_credit_document_template")
+@NamedQueries({
+        @NamedQuery(name = "countCreditDocumentTemplate", query = "select count(creditDocTemplate) from CrCreditDocumentTemplate creditDocTemplate where (creditDocTemplate.paymentMethodEnum=:paymentMethodEnum and " +
+                "creditDocTemplate.paymentTypeEnum=:paymentTypeEnum and creditDocTemplate.recordTypeEnum=:recordTypeEnum and creditDocTemplate.account=:account and creditDocTemplate.accountingType=:accountingType and " +
+                "creditDocTemplate.creditSubjectEnum=:creditSubjectEnum and creditDocTemplate.resource=:resource and creditDocTemplate.creditPaymentNatureEnum=:creditPaymentNatureEnum and creditDocTemplate.documentSubject=:documentSubject)"),
+        @NamedQuery(name = "countCreditDocumentTemplateForEdit", query = "select count(creditDocTemplate) from CrCreditDocumentTemplate creditDocTemplate where creditDocTemplate.id not in :id and " +
+                "(creditDocTemplate.paymentMethodEnum=:paymentMethodEnum and creditDocTemplate.paymentTypeEnum=:paymentTypeEnum and creditDocTemplate.recordTypeEnum=:recordTypeEnum and creditDocTemplate.account=:account and " +
+                "creditDocTemplate.accountingType=:accountingType and creditDocTemplate.paymentSubject =:paymentSubject and creditDocTemplate.creditPaymentNatureEnum =:creditPaymentNature and creditDocTemplate.creditSubjectEnum=:creditSubjectEnum and " +
+                "creditDocTemplate.resource=:resource and creditDocTemplate.documentSubject=:documentSubject)")
+})
+@UsecaseSupport(subSystem = SubSystem.Credit,usecaseType = UsecaseType.Process)
+public class CrCreditDocumentTemplate extends AbstractCrCreditDocumentTemplate implements DocumentTemplate {
+    public CrCreditDocumentTemplate() {
+    }
+}
