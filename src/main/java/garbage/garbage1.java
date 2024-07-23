@@ -12,9 +12,7 @@ public class garbage1 {
         file.writeFile();
         file.writeFile1();
         file.writeFile2();
-        System.out.println("");
 
-        
     }
 }
 
