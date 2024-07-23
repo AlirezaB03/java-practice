@@ -13,6 +13,15 @@ public class garbage1 {
         file.writeFile1();
         file.writeFile2();
 
+
+
+
+
+
+
+
+
+        
     }
 }
 
