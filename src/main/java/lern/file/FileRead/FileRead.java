@@ -17,7 +17,6 @@ public class FileRead {
         String fileName;
         String[] split = fileNamepath.split("/");
         fileName = split[split.length - 1];
-        System.out.println(fileName);
         return fileName;
     }
 
@@ -30,7 +29,7 @@ public class FileRead {
         }
     }
 
-    public void writeFile() throws IOException {
+    public void readFile() throws IOException {
         // default UTF_8
         String s = Files.readString(Paths.get(fileNamepath));
         //or
@@ -42,7 +41,7 @@ public class FileRead {
 
 
     }
-    public void writeFile1() throws IOException {
+    public void readFile1() throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(fileNamepath));
         String content = new String(bytes, StandardCharsets.UTF_8);
         System.out.println("_____________________________");
@@ -50,7 +49,7 @@ public class FileRead {
         System.out.println("_____________________________");
     }
 
-    public void writeFile2() throws IOException {
+    public void readFile2() throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(fileNamepath),StandardCharsets.UTF_8);
         lines.forEach(System.out::println);
     }

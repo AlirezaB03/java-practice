@@ -9,9 +9,9 @@ public class garbage1 {
     public static void main(String[] args) throws IOException {
         FileRead file = new FileRead();
         file.makeFile();
-        file.writeFile();
-        file.writeFile1();
-        file.writeFile2();
+        file.readFile();
+        file.readFile1();
+        file.readFile2();
 
     }
 }
