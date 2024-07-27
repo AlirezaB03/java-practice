@@ -1,5 +1,6 @@
 package calc;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.MemoryHandler;
@@ -13,7 +14,7 @@ public class Calculate {
         this.historyHandler = historyHandler;
     }
 
-    public void run() {
+    public void run() throws IOException {
         int option;
         do {
             Scanner scanner = new Scanner(System.in);
@@ -62,7 +63,7 @@ public class Calculate {
         number2 = scanner.nextDouble();
     }
 
-    private void add() {
+    private void add() throws IOException {
         choiceNumber();
         double number = number1 + number2;
         String result = number1 + " + " + number2 + " = " + number;
@@ -70,7 +71,7 @@ public class Calculate {
         historyHandler.add(result);
     }
 
-    private void sub() {
+    private void sub() throws IOException {
         choiceNumber();
         double number = number1 - number2;
         String result = number1 + " - " + number2 + " = " + number;
@@ -80,7 +81,7 @@ public class Calculate {
 
     }
 
-    private void mul() {
+    private void mul() throws IOException {
         choiceNumber();
         double number = number1 * number2;
         String result = number1 + " * " + number2 + " = " + number;
@@ -102,7 +103,7 @@ public class Calculate {
         }
     }
 
-    private void history() {
+    private void history() throws IOException {
         System.out.println("<<History>>\n");
 
         List<String> list = historyHandler.getAll();

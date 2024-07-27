@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FileRead {
 
-    private final String fileNamepath = "/home/amir/Documents/alireza/1/young/history.txt";
+    private final String fileNamepath = "/home/alirezabahrami/Documents/java/history.txt";
     private final String fileName = fileName();
 
     public String fileName() {
