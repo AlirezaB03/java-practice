@@ -37,7 +37,7 @@ public class FileWrite {
     }
 
     public void writeFile1() throws IOException {
-        List<String> content = Arrays.asList("534","awetrw");
+        List<String> content = Arrays.asList("534\nawetrw");
         Files.write(Path.of(filePath), content);
     }
 

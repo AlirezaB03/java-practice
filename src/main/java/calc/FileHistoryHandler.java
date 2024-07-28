@@ -28,24 +28,31 @@ public class FileHistoryHandler implements HistoryHandler {
         history.add(result);
     }
 
+    private String content(List<String> content) throws IOException {
+        String t = "";
+        for (int i = 0; i < content.size(); i++) {
+            t += content.get(i) + "\n";
+        }
+        return t;
+    }
+
 
     @Override
     public List<String> getAll() throws IOException {
         List<String> form = new ArrayList<>();
-        form.add("<<History>>");
-        form.add(" ");
+        form.add("<<History>>\n");
         for (int i = 0; i < history.size(); i++) {
             form.add((i + 1) + ") " + history.get(i));
         }
-        List<String> content = Arrays.asList(form.toArray(new String[form.size()]));
+        Files.writeString(Path.of(filePath), content(form), StandardCharsets.UTF_8);
+    /* List<String> content = Arrays.asList(form.toArray(new String[form.size()]));
         Files.write(Path.of(filePath), content, StandardCharsets.UTF_8);
-        System.out.println();
-      /*  List<String> content =  Arrays.asList(String.valueOf(history));
+        System.out.println();*/
+    /*  List<String> content =  Arrays.asList(String.valueOf(history));
         for  (int i = 0; i < content.size(); i++) {
             Files.write(Path.of(filePath), content.get(i).getBytes(StandardCharsets.UTF_8));
         }
         Files.write(Path.of(filePath), content , StandardCharsets.UTF_8);*/
         return history;
     }
-
 }
