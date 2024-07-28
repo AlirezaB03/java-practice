@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FileWrite {
 
-    private final String filePath = "/home/alirezabahrami/Documents/java/historyWrite.txt";
+    private final String filePath = "/home/amir/Documents/alireza/1/young/historyWrite.txt";
     private final String fileName = fileName();
 
     FileWrite() throws IOException {

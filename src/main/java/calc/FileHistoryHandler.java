@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FileHistoryHandler implements HistoryHandler {
-    private final String filePath = "/home/alirezabahrami/Documents/java/historyWrite.txt";
+    private final String filePath = "/home/amir/Documents/alireza/1/young/historyWrite.txt";
     List<String> history = new ArrayList<>();
 
     FileHistoryHandler() throws IOException {
@@ -31,13 +31,20 @@ public class FileHistoryHandler implements HistoryHandler {
 
     @Override
     public List<String> getAll() throws IOException {
-        /*List<String> content = Arrays.asList(history.toArray(new String[history.size()]));
-        Files.write(Path.of(filePath), content, StandardCharsets.UTF_8);*/
-        List<String> content =  Arrays.asList(String.valueOf(history));
-//        for  (int i = 0; i < content.size(); i++) {
-//            Files.write(Path.of(filePath), content.get(i).getBytes(StandardCharsets.UTF_8));
-//        }
-        Files.write(Path.of(filePath), content , StandardCharsets.UTF_8);
+        List<String> form = new ArrayList<>();
+        form.add("<<History>>");
+        form.add(" ");
+        for (int i = 0; i < history.size(); i++) {
+            form.add((i + 1) + ") " + history.get(i));
+        }
+        List<String> content = Arrays.asList(form.toArray(new String[form.size()]));
+        Files.write(Path.of(filePath), content, StandardCharsets.UTF_8);
+        System.out.println();
+      /*  List<String> content =  Arrays.asList(String.valueOf(history));
+        for  (int i = 0; i < content.size(); i++) {
+            Files.write(Path.of(filePath), content.get(i).getBytes(StandardCharsets.UTF_8));
+        }
+        Files.write(Path.of(filePath), content , StandardCharsets.UTF_8);*/
         return history;
     }
 

@@ -1,7 +1,12 @@
 package garbage;
 
+import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
+import java.util.List;
+
 public class test {
-    public static void main(String[] args) {
-        garbage1 g1 = new garbage1();
+
+
+    private boolean list1;
     }
-}
+
