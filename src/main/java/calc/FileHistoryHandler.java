@@ -45,14 +45,17 @@ public class FileHistoryHandler implements HistoryHandler {
             form.add((i + 1) + ") " + history.get(i));
         }
         Files.writeString(Path.of(filePath), content(form), StandardCharsets.UTF_8);
+        //todo:intellij suggestion
     /* List<String> content = Arrays.asList(form.toArray(new String[form.size()]));
         Files.write(Path.of(filePath), content, StandardCharsets.UTF_8);
         System.out.println();*/
+        //todo:The method did not work
     /*  List<String> content =  Arrays.asList(String.valueOf(history));
         for  (int i = 0; i < content.size(); i++) {
             Files.write(Path.of(filePath), content.get(i).getBytes(StandardCharsets.UTF_8));
         }
-        Files.write(Path.of(filePath), content , StandardCharsets.UTF_8);*/
+        Files.write(Path.of(filePath), content , StandardCharsets.UTF_8);n*/
+
         return history;
     }
 }
