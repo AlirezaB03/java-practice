@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class FileHistoryHandler implements HistoryHandler {
-    private final String filePath = "/home/amir/Documents/alireza/1/young/historyWrite.txt";
+    private final String filePath = "/home/alirezabahrami/Documents/java/historyWrite.txt";
     List<String> history = new ArrayList<>();
 
     FileHistoryHandler() throws IOException {
